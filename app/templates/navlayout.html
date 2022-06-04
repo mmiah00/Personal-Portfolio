@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html> 
+    <head>
+        <title> Maisha's Portfolio </title>
+        <link rel="stylesheet" href={{url_for('static', filename='styles/main.css')}}>
+    </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="logo">Maisha's Portfolio</h1>
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="container">
+                <p> Click on the toolbar to the right to find out more about me. </p>
                 <strong> <nav>
                     <ul>
                         <li><a href="{{ url_for('homepage')}}">Home</a></li>
@@ -13,10 +21,6 @@
                         <li><a href="{{ url_for('myMap')}}">Map</a></li>
                     </ul>
                 </nav></strong>
-            </div>
-            <div class="container">
-                {% block content %}
-                {% endblock %}
             </div>
         </header>
     </body>
