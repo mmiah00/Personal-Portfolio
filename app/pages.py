@@ -1,10 +1,10 @@
 from flask import Flask, render_template
-app = Flask (__name__) 
+app = Flask(__name__) 
 
 @app.route("/")
 def homepage(): 
 	# acts as a homepage and an "About Me" page
-	return render_template("index.html")
+	return render_template("homepage.html")
 
 @app.route("/experience")
 def workExp(): 
