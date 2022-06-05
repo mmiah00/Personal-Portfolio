@@ -96,13 +96,9 @@ body {
     font-weight: 700;
 }
 
-.home-content {
-    /* margin: auto;
-    width: 50%;
-    padding: 10px;
-    text-align:center;
-    border: 5px solid #3a29d4; */
+/* *********** FOR HOMEPAGE *********** */
 
+.home-content {
     margin: 0;
     width: 50%;
     position: absolute;
@@ -146,11 +142,6 @@ body {
     /* border: 5px solid #ff001e; */
 }
 
-/* .home-image { 
-    width: auto;
-    height: auto;
-    margin-bottom: 20px;
-} */
-.home { 
-    /* border: 20px solid #FFFF00; */
+.home-img:hover {
+    opacity: 0.75;
 }
