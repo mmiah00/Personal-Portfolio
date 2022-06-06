@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     
         <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
-        <title> Maisha's Portfolio </title>
+        <title>{{ title }} </title>
     </head>
     <body>
         <header>
@@ -29,8 +29,8 @@
                         <ul>
                             <li><a href="{{ url_for('homepage')}}">Home</a></li>
                             <li><a href="{{ url_for('workExp')}}">Experience</a></li>
-                            <li><a href="{{ url_for('education')}}">Education</a></li>
                             <li><a href="{{ url_for('hobbies')}}">Hobbies</a></li>
+                            <li><a href="{{ url_for('education')}}">Education</a></li>
                             <li><a href="{{ url_for('myMap')}}">Map</a></li>
                         </ul>
                     </nav>
