@@ -197,6 +197,7 @@ li {
 
 .entry:hover {
     opacity: 0.75;
+    border: 2px solid rgb(245, 233, 233);
 }
 
 .entry-outer { 
