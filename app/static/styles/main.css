@@ -2,6 +2,11 @@ p, h1, h2, h3, h4, h5, h6, button {
     font-family: 'Ubuntu', sans-serif;
 }
 
+h1 { 
+    font-size: 50px; 
+    text-align: center;
+}
+
 body {
     background-image: linear-gradient(to right, pink, #FFFF8F);
     background-size: cover;
@@ -94,12 +99,6 @@ li {
     margin-bottom: 50px;
 }
 
-.profile h1 {
-        font-size: 50px;
-        font-weight: 700;
-        color: white;
-}
-
 .profile img {
         border-radius: 50%;
         max-width: 100%;
@@ -180,12 +179,6 @@ li {
     /* border: 2px solid #ff001e; */
 }
 
-.experience h1 { 
-    font-size: 50px;
-    font-weight: 700;
-    text-align: center; 
-}
-
 .entry { 
     width: 500px; 
     height: 250px; 
@@ -226,8 +219,6 @@ li {
 .hobbies h1 { 
     -ms-transform: translateY(20%);
     transform: translateY(20%);
-    font-size: 50px;
-    font-weight: 700;
 }
 
 .hobbies h2 { 
@@ -257,4 +248,10 @@ li {
   
 .card .container {
    padding: 2px 16px;
+}
+
+/* *********** FOR EDUCATION PAGE *********** */
+.education .card h4{
+    font-size: 20px;
+    text-align: center; 
 }
