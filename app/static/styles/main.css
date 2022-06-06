@@ -11,6 +11,16 @@ body {
     margin: 0px;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li { 
+    display: inline;
+}
+
 .nav-bar {
     /* width: 100%;
     height: auto;  */
@@ -68,27 +78,6 @@ body {
     padding: 10px;
     /* border: 5px solid #FFFF00; */
 }
-
-/* .nav-content .logo-touch-target {
-    display: inline-flex;
-    height: 60%;
-    width: 350px;
-} */
-
-/* .nav-content .nav-logo {
-    height: 60px;
-    margin: auto;
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-logo img {
-    width: 200px;
-} */
 
 .nav-content nav {
     display: block;
@@ -181,12 +170,46 @@ body {
 .home-img:hover {
     opacity: 0.75;
 }
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+
+/* *********** FOR EXPERIENCE PAGE *********** */
+.experience {
+    width: 100%;
+    height: auto; 
+    -ms-transform: translateY(150%);
+    transform: translateY(150%);
+    /* border: 2px solid #ff001e; */
 }
 
-li { 
-    display: inline;
+.experience h1 { 
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center; 
+}
+
+.entry { 
+    width: 500px; 
+    height: 250px; 
+    border: 2px solid black;
+    background: rgb(245, 233, 233);
+    border-radius: 10px;
+    float: left;  
+}
+
+.entry:hover {
+    opacity: 0.75;
+    border: 2px solid rgb(245, 233, 233);
+}
+
+.entry-outer { 
+    width: fit-content;
+    height: fit-content; 
+    padding: 10px; 
+    float: left; 
+    /* border: 2px solid rgb(247, 11, 11); */
+}
+
+.entry p{ 
+    text-align: left; 
+    padding-left: 10px; 
+    padding-right: 10px; 
 }
