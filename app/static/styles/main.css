@@ -7,26 +7,75 @@ body {
     background-size: cover;
     width: auto; 
     overflow-x: hidden;
-    font-family: "Roboto", serif;
+    font-family: "Ubuntu", sans-serif;
     margin: 0px;
 }
 
 .nav-bar {
-    width: 100%;
-    display: inline-block;
-    background-color: #1C539F;
-    font-family: "Roboto", serif;
-    font-weight: 700 !important;
-    padding-top: 10px;
+    /* width: 100%;
+    height: auto;  */
+    margin: auto;
+    position: relative;
+    width: 80%;
+    padding: 10px;
+    /* background-color: #1C539F; */
+    font-weight: 700;
+    /* border: 5px solid #ff8827; */
 }
 
-.nav-content .logo-touch-target {
+/* .nav-bar .description { 
+    border: 2px solid #ca36e0;
+}
+
+.nav-bar .buttons { 
+    border: 2px solid #ca36e0;
+} */
+
+.nav-bar .buttons li{ 
+    display: inline-flex;
+    padding: 10px 20px; 
+    font-size: 20px;
+    text-align: center; 
+    text-decoration: none; 
+    color: #0e0000;
+    border-radius: 6px;
+    border: 2px solid black;
+    /* outline: 1px;   */
+}
+
+.nav-bar .buttons { 
+    width: auto;
+    height: auto; 
+    max-width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding-top: 50px;
+    transform: translate(-50%, -50%);
+    /* border: 5px solid #ca36e0; */
+    /* margin: -35px 0 0 -35px; */
+}
+
+.nav-content {
+    margin: 0;
+    width: 80%; 
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    /* border: 5px solid #FFFF00; */
+}
+
+/* .nav-content .logo-touch-target {
     display: inline-flex;
     height: 60%;
     width: 350px;
-}
+} */
 
-.nav-content .nav-logo {
+/* .nav-content .nav-logo {
     height: 60px;
     margin: auto;
 }
@@ -39,7 +88,7 @@ body {
 
 .nav-logo img {
     width: 200px;
-}
+} */
 
 .nav-content nav {
     display: block;
@@ -109,19 +158,6 @@ body {
     padding: 10px;
     text-align:center;
     /* border: 5px solid #3a29d4; */
-}
-
-.home {
-    margin: 0;
-    width: 80%; 
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    /* border: 5px solid #FFFF00; */
 }
 
 .home-content h1 { 

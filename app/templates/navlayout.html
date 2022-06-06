@@ -18,22 +18,25 @@
     </head>
     <body>
         <header>
-            <div class="container">
+            <div class="nav-content">
                 {% block content %}
                 {% endblock %}
             </div>
-            <div class="container">
-                <p> Click on the toolbar to the right to find out more about me. </p>
-                <strong> <nav>
-                    <ul>
-                        <li><a href="{{ url_for('homepage')}}">Home</a></li>
-                        <li><a href="{{ url_for('workExp')}}">Experience</a></li>
-                        <li><a href="{{ url_for('education')}}">Education</a></li>
-                        <li><a href="{{ url_for('hobbies')}}">Hobbies</a></li>
-                        <li><a href="{{ url_for('myMap')}}">Map</a></li>
-                    </ul>
-                </nav></strong>
+            
+            <div class="nav-bar">
+                <div class="buttons">
+                    <nav>
+                        <ul>
+                            <li><a href="{{ url_for('homepage')}}">Home</a></li>
+                            <li><a href="{{ url_for('workExp')}}">Experience</a></li>
+                            <li><a href="{{ url_for('education')}}">Education</a></li>
+                            <li><a href="{{ url_for('hobbies')}}">Hobbies</a></li>
+                            <li><a href="{{ url_for('myMap')}}">Map</a></li>
+                        </ul>
+                    </nav>
+                </div> 
             </div>
+
         </header>
     </body>
 </html>
