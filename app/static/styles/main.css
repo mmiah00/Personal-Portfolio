@@ -175,17 +175,16 @@ li {
 .experience {
     width: 100%;
     height: auto; 
-    -ms-transform: translateY(150%);
-    transform: translateY(150%);
+    -ms-transform: translateY(400%);
+    transform: translateY(400%);
     /* border: 2px solid #ff001e; */
 }
 
 .experience h1 { 
     font-size: 50px;
     font-weight: 700;
-    text-align: center; 
+    text-align: center;
 }
-
 .entry { 
     width: 500px; 
     height: 250px; 
@@ -214,6 +213,10 @@ li {
     padding-right: 10px; 
 }
 
+.entry-outer .card {
+    width: 350px; 
+    height: 300px;
+}
 /* *********** FOR HOBBIES PAGE *********** */
 .hobbies {
     width: 100%;
