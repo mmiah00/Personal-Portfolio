@@ -1,7 +1,9 @@
 /* *********** GENERAL *********** */
 
 p, h1, h2, h3, h4, h5, h6, button {
-    font-family: 'Ubuntu', sans-serif;
+    /* font-family: 'Nunito', sans-serif; */
+    /* font-family: 'Ubuntu', sans-serif; */
+    font-family: 'Manrope', sans-serif;
 }
 
 h1 { 
