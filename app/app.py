@@ -2,9 +2,9 @@ from flask import Flask, render_template
 app = Flask(__name__) 
 
 @app.route("/")
-def homepage(): 
+def index(): 
 	# acts as a homepage and an "About Me" page
-	return render_template("homepage.html", title="Maisha's Portfolio")
+	return render_template("index.html", title="Maisha's Portfolio")
 
 @app.route("/experience")
 def workExp(): 
