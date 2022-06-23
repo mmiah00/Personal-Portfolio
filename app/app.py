@@ -52,7 +52,7 @@ def post_time_line_post():
 	content = request.form['content']
 	timeline_post = TimelinePost.create(name=name, email=email, content=content)
 
-	return model_to_dic(timeline_post)
+	return model_to_dict(timeline_post)
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_post(): 
