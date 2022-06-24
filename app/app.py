@@ -45,6 +45,10 @@ def education():
 def myMap(): 
 	return render_template("map.html", title="Map") 
 
+@app.route("/timeline")
+def timeline(): 
+	return render_template("timeline.html", title="Timeline")
+
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post(): 
 	name = request.form['name']
