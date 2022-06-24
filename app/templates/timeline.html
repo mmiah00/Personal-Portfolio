@@ -2,11 +2,20 @@
 {%block content%}
 <div class="Hobbies">
     <form id="form"> 
-        <input name="Name" type="text">
-        <input name="Email" type="text"> 
-        <input name="Content" type="text"> 
+        <label for="name"> Name </label>
+        <input name="name" type="text" id="name">
+        <label for="email"> Email </label>
+        <input name="email" type="text" id="email"> 
+        <label for="content"> Content </label>
+        <input name="content" type="text" id="content"> 
         <button type="submit">Submit</button>
     </form>
+
+    <div class="card">
+        <p id="post-name"></p>
+        <p id="post-email"></p>
+        <p id="post-content"></p>
+    </div>
 
     <script>
         const form = document.getElementById('form'); 
@@ -14,13 +23,45 @@
             e.preventDefault(); 
             const payload = new FormData(form);
 
-            fetch ('/api/timeline_post', {
-                method:"POST", 
-                body: payload
+            fetch('/api/timeline_post', {
+                method: 'POST',
+                body: payload,
             })
             .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err)); 
+            .then(data => {
+                    console.log(data);
+                    document.getElementById('post-name').innerHTML = data.name; 
+                    document.getElementById('post-email').innerHTML = data.email; 
+                    document.getElementById('post-content').innerHTML = data.content; 
+                    // return `
+                    // <div class ="timeline-user"> 
+                    //     <p>Name: ${data.name}</p>
+                    //     <p>Email: ${data.email}</p>
+                    //     <p>Content: ${data.content}</p>
+                    //     </div>
+                    // `;
+
+                    // do stuff here after the post api returns with data
+                    // location.reload()
+            })
+            .catch(err => console.log(err))
+            form.reset();
         })
+        
+        // const form = document.getElementById('form'); 
+        // form.addEventListener('submit', function(e) { 
+        //     e.preventDefault(); 
+        //     const payload = new FormData(form);
+
+        //     fetch ('/api/timeline_post', {
+        //         method: 'POST', 
+        //         body: payload,
+        //     })
+        //     .then(res => res.json())
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log(err)); 
+        // })
+
     </script>
 </div>
+{%endblock%}
