@@ -47,7 +47,8 @@ def myMap():
 
 @app.route("/timeline")
 def timeline(): 
-	return render_template("timeline.html", title="Timeline")
+	posts = [model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())]
+	return render_template('timeline.html', title="Timeline", posts=posts)
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post(): 
@@ -67,7 +68,13 @@ def get_time_line_post():
 		]
 	}
 
+@app.route('/api/timeline_post/<id>', methods=['DELETE'])
+def delete_time_line_post(id): 
+	to_delete = mydb.query.get(id) 
+	mydb.session.delete(to_delete)
+	mydb.session.commit()
 
+	return "Deleted successfully"
 
 # from flask import Flask, render_template
 # app = Flask(__name__) 
