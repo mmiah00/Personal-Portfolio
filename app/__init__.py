@@ -24,9 +24,31 @@ class TimelinePost(Model):
 mydb.connect()
 mydb.create_tables([TimelinePost])
 
-@app.route('/')
-def index():
-    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
+@app.route("/")
+def index(): 
+	# acts as a homepage and an "About Me" page
+	return render_template("index.html", title="Maisha's Portfolio")
+
+@app.route("/experience")
+def workExp(): 
+	return render_template("experience.html", title="Work Experience")
+
+@app.route("/hobbies")
+def hobbies(): 
+	return render_template("hobbies.html", title="Hobbies")
+
+@app.route("/education")
+def education(): 
+	return render_template("education.html", title="Education") 
+
+@app.route("/myMap")
+def myMap(): 
+	return render_template("map.html", title="Map") 
+
+@app.route("/timeline")
+def timeline(): 
+	posts = [model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())]
+	return render_template('timeline.html', title="Timeline", posts=posts)
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post(): 
@@ -35,7 +57,7 @@ def post_time_line_post():
 	content = request.form['content']
 	timeline_post = TimelinePost.create(name=name, email=email, content=content)
 
-	return model_to_dic(timeline_post)
+	return model_to_dict(timeline_post)
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_post(): 
@@ -45,3 +67,38 @@ def get_time_line_post():
 			for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
 		]
 	}
+
+@app.route('/api/timeline_post/<id>', methods=['DELETE'])
+def delete_time_line_post(id): 
+	to_delete = mydb.query.get(id) 
+	mydb.session.delete(to_delete)
+	mydb.session.commit()
+
+	return "Deleted successfully"
+
+# from flask import Flask, render_template
+# app = Flask(__name__) 
+
+# @app.route("/")
+# def index(): 
+# 	# acts as a homepage and an "About Me" page
+# 	return render_template("index.html", title="Maisha's Portfolio")
+
+# @app.route("/experience")
+# def workExp(): 
+# 	return render_template("experience.html", title="Work Experience")
+
+# @app.route("/hobbies")
+# def hobbies(): 
+# 	return render_template("hobbies.html", title="Hobbies")
+
+# @app.route("/education")
+# def education(): 
+# 	return render_template("education.html", title="Education") 
+
+# @app.route("/myMap")
+# def myMap(): 
+# 	return render_template("map.html", title="Map") 
+
+# if __name__ == "__main__": 
+# 	app.run(debug=True)
