@@ -1,6 +1,6 @@
 {%extends "navlayout.html"%}
 {%block content%}
-<div class="Hobbies">
+<div class="Timeline">
     <form id="form"> 
         <label for="name"> Name </label>
         <input name="name" type="text" id="name">
@@ -11,14 +11,16 @@
         <button type="submit">Submit</button>
     </form>
 
-    {% for post in posts %} 
-        <div class="card">
-            <h3>Post by {{post.name}}</h3>
-            <h4>Created at {{post.created_at}}</h4> 
-            <p>Email: {{post.email}}</p>
-            <p>Content: {{post.content}}</p>
-        </div>
-    {% endfor %}
+    <div class="timeline-posts"> 
+        {% for post in posts %} 
+            <div class="card">
+                <h3>Post by {{post.name}}</h3>
+                <h4>Created at {{post.created_at}}</h4> 
+                <p>Email: {{post.email}}</p>
+                <p>Content: {{post.content}}</p>
+            </div>
+        {% endfor %}
+    </div>
 
     <script>
         const form = document.getElementById('form'); 
