@@ -70,9 +70,13 @@ def get_time_line_post():
 
 @app.route('/api/timeline_post/<id>', methods=['DELETE'])
 def delete_time_line_post(id): 
-	to_delete = mydb.query.get(id) 
-	mydb.session.delete(to_delete)
-	mydb.session.commit()
+	# sql = "DELETE FROM timeline_post WHERE id = " + id 
+	# mydb.execute(sql)
+	# mydb.commit()
+	
+	to_delete = mydb.get(id) 
+	mydb.delete(to_delete)
+	mydb.commit()
 
 	return "Deleted successfully"
 
