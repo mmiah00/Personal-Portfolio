@@ -1,5 +1,6 @@
-{%extends "navlayout.html"%} {%block content%}
-<div class="Timeline">
+{%extends "navlayout.html"%} 
+{%block content%}
+<div class="timeline">
   <form id="form" name="timelineForm">
     <label for="name"> Name </label>
     <input name="name" type="text" id="name" />
@@ -11,14 +12,17 @@
     <h3 id="ErrorMessage"></h3>
   </form>
 
+  <p id="error"></p>
+
   {% for post in posts %}
   <div class="card">
-    <h3>Post by {{post.name}}</h3>
+    <h3>Post #{{post.id}} by {{post.name}}</h3>
     <h4>Created at {{post.created_at}}</h4>
     <p>Email: {{post.email}}</p>
     <p>Content: {{post.content}}</p>
   </div>
   {% endfor %}
+
 
   <script>
     form = document.getElementById("form");
@@ -34,38 +38,14 @@
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          // document.getElementById('post-name').innerHTML = data.name;
-          // document.getElementById('post-email').innerHTML = data.email;
-          // document.getElementById('post-content').innerHTML = data.content;
-
-          // return `
-          // <div class ="timeline-user">
-          //     <p>Name: ${data.name}</p>
-          //     <p>Email: ${data.email}</p>
-          //     <p>Content: ${data.content}</p>
-          //     </div>
-          // `;
-
-          // do stuff here after the post api returns with data
           location.reload();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => { 
+          document.getElementById("error").innerHTML = "Sorry, at least one of your entries is invalid. Please try again."; 
+          console.log(err); 
+        });
       form.reset();
     });
-
-    // const form = document.getElementById('form');
-    // form.addEventListener('submit', function(e) {
-    //     e.preventDefault();
-    //     const payload = new FormData(form);
-
-    //     fetch ('/api/timeline_post', {
-    //         method: 'POST',
-    //         body: payload,
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => console.log(data))
-    //     .catch(err => console.log(err));
-    // })
   </script>
 </div>
 {%endblock%}

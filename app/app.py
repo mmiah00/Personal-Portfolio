@@ -70,11 +70,13 @@ def post_time_line_post():
         email = request.form['email']
         content = request.form['content'] 
         if content == "":
+            # page = render_template('error.html', title="Invalid content")
             return Response(
             "Invalid content",
             status=400,
             )
         elif name == "":
+            # page = render_template('error.html', title="Invalid name")
             return Response(
             "Invalid name",
             status=400,
@@ -84,15 +86,14 @@ def post_time_line_post():
                 timeline_post = TimelinePost.create(name=name, email=email, content=content)
                 return model_to_dict(timeline_post)
             else:
+                # page = render_template('error.html', title="Invalid email")
                 return Response(
                 "Invalid email",
                 status=400,
                 )
     except:
-	    return Response(
-        "Invalid name",
-        status=400,
-    )
+        # page = render_template('error.html', title="Invalid name")
+	    return Response("Invalid name", status=400)
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_post(): 
@@ -103,13 +104,25 @@ def get_time_line_post():
 		]
 	}
 
+# @app.route('/api/timeline_post/<int:nid>', methods=['DELETE'])
+# def delete_time_line_post(nid):
+#     try:
+#         obj=TimelinePost.get(TimelinePost.id==nid)
+#         obj.delete_instance()
+#         return get_time_line_post()
+#         # return "Done"
+#     except TypeError:
+#         from traceback import format_exec
+#         print(format_exec())
+
 @app.route('/api/timeline_post/<int:nid>', methods=['DELETE'])
-def delete_time_line_post(nid):
-    try:
-        obj=TimelinePost.get(TimelinePost.id==nid)
-        obj.delete_instance()
-        return get_time_line_post()
-        # return "Done"
-    except TypeError:
-        from traceback import format_exec
-        print(format_exec())
+def delete_time_line_post(nid): 
+	post_to_delete = TimelinePost.delete().where(TimelinePost.id == nid)
+	post_to_delete.execute()
+	print("Deleted successfully")
+	# return { 
+	# 	'timeline_posts': [
+	# 		model_to_dict(p)
+	# 		for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+	# 	]
+	# }

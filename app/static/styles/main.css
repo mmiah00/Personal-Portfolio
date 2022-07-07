@@ -14,20 +14,64 @@ h1 {
 body {
     background-image: linear-gradient(to right, pink, #FFFF8F);
     background-size: cover;
-    width: auto; 
-    overflow-x: hidden;
+    overflow-x: scroll;
     font-family: "Ubuntu", sans-serif;
-    margin: 0px;
+    margin: 50px;
 }
 
-ul {
+/* *********** FOR NAVBAR *********** */
+.nav-bar {
+    align-self: flex-start;
+    /*border: 2px solid red;*/ /*for debugging*/
+}
+
+.nav-bar ul{
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    display: inline-flex;
+    margin: 10px;
+    padding: 10px;
+    margin-left: 25%; 
+    margin-right: 25%;
 }
 
-li { 
-    display: inline;
+.nav-bar li{ 
+    padding: 10px 20px; 
+    font-size: 20px; 
+    border-radius: 6px;
+    text-align: center;
+    border: 2px solid black;
+    outline: 1px; 
+    color: #0e0000;
+}
+
+/* *********** FOR HOMEPAGE *********** */
+.home { 
+    width: fit-content; 
+    margin-left: 10%;
+    margin-right: 10%;
+    /* border: 2px solid red; */ /* for debugging */
+}
+
+.home img{
+    width : 40%; 
+    height : 40%; 
+    display: left;
+    float: left; 
+}
+
+.home .home-content p{ 
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.home-content h1 { 
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.home-content{ 
+    transform: translate(0px, 200px);
 }
 
 /* *********** FOR CARD *********** */
@@ -50,158 +94,13 @@ li {
    padding: 2px 16px;
 }
 
-/* *********** FOR NAVIGATION *********** */
-
-.nav-bar {
-    /* width: 100%;
-    height: auto;  */
-    margin: auto;
-    position: relative;
-    width: 80%;
-    padding: 10px;
-    /* background-color: #1C539F; */
-    font-weight: 700;
-    /* border: 5px solid #ff8827; */
-}
-
-.nav-bar .buttons li{ 
-    display: inline-flex;
-    padding: 10px 20px; 
-    font-size: 20px;
-    text-align: center; 
-    text-decoration: none; 
-    color: #0e0000;
-    border-radius: 6px;
-    border: 2px solid black;
-    /* outline: 1px;   */
-}
-
-.nav-bar .buttons { 
-    width: auto;
-    height: auto; 
-    max-width: fit-content;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding-top: 50px;
-    transform: translate(-50%, -50%);
-    /* border: 5px solid #ca36e0; */
-    /* margin: -35px 0 0 -35px; */
-}
-
-.nav-content {
-    margin: 0;
-    width: 80%; 
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    /* border: 5px solid #FFFF00; */
-}
-
-.nav-content nav {
-    display: block;
-    width: 100%;
-    text-align: right;
-    padding-top: 0px;
-    padding-right: 0px;
-}
-
-.profile {
-    background-color: #1d539f !important;
-    text-align: center;
-    height: 320px;
-    margin-bottom: 50px;
-}
-
-.profile img {
-        border-radius: 50%;
-        max-width: 100%;
-        max-height: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;        
-        padding: 20px;
-}
-
-.profile .profile-picture {
-    margin-bottom: 30px;
-    height: 200px;
-}
-
-.banner {
-    padding: 20px 0px 50px 0px;
-    height: 150px;
-    background-color: #1d539f;
-}
-
-.banner .logo {
-    max-width:180px;
-    max-height:60px;
-    width: auto;
-    height: auto;
-}
-
-.banner .title {
-    color: white;
-    font-size: 50px;
-    font-weight: 700;
-}
-
-/* *********** FOR HOMEPAGE *********** */
-
-.home-content {
-    margin: 0;
-    width: 50%;
-    position: absolute;
-    top: 50%;
-    left: 45%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    padding: 10px;
-    text-align:center;
-    /* border: 5px solid #3a29d4; */
-}
-
-.home-content h1 { 
-    font-size: 70px;
-    font-weight: 700;
-}
-
-.home-content p { 
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.home-img { 
-    width: 40%; 
-    height: auto;
-    display: flex;
-    justify-content: center;
-    /* border: 5px solid #ff001e; */
-}
-
-.home-img:hover {
-    opacity: 0.75;
-}
-
 /* *********** FOR EXPERIENCE PAGE *********** */
 .experience {
     width: 100%;
     height: auto; 
-    -ms-transform: translateY(400%);
-    transform: translateY(400%);
     /* border: 2px solid #ff001e; */
 }
 
-.experience h1 { 
-    font-size: 50px;
-    font-weight: 700;
-    text-align: center;
-}
 .entry { 
     width: 500px; 
     height: 250px; 
@@ -234,6 +133,7 @@ li {
     width: 350px; 
     height: 300px;
 }
+
 /* *********** FOR HOBBIES PAGE *********** */
 .hobbies {
     width: 100%;
@@ -243,38 +143,14 @@ li {
     /* border: 2px solid #ff001e; */
 }
 
-.hobbies h1 { 
-    -ms-transform: translateY(20%);
-    transform: translateY(20%);
-}
-
 .hobbies h2 { 
     font-size: 20px;
     font-weight: 700;
 }
 
 .hobbies img { 
-    width: 200px; 
-    height: 200px; 
-    /* border: 2px solid #ff001e; */
-}
-
-.card { 
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 40%;
-    float: left; 
-    -ms-transform: translateX(15%);
-    transform: translateX(15%);
-    padding: 25px; 
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-.card .container {
-   padding: 2px 16px;
+    width: 400px; 
+    height: 400px; 
 }
 
 /* *********** FOR EDUCATION PAGE *********** */
@@ -287,13 +163,29 @@ li {
 .map { 
     margin: auto; 
     position: relative; 
-    -ms-transform: translateY(25%);
-    transform: translateY(25%);
     align-items: center;
+    justify-content: center;
 }
 
+.map ul { 
+    list-style-type: none;
+}
+
+.map iframe { 
+    transform: translate(350px, 0)
+}
+
+
 /* *********** FOR TIMELINE PAGE *********** */
-.Hobbies .timeline-posts{ 
-    position: relative; 
+.timeline { 
     padding: 25px; 
+    justify-content: center;
+    /* border: 2px solid red; */
+}
+
+.timeline form{ 
+    width: fit-content;
+    margin-left: 20%;
+    margin-right: 20%; 
+    /* border: 2px solid lime;  */
 }
