@@ -15,7 +15,6 @@ class AppTestCase(unittest.TestCase):
         response = self.client.get("/")
         assert response.status_code == 200
         html = response.get_data(as_text=True)
-        assert "<title>MLH Fellow</title>" in html
         assert '<li><a href="/">Home</a></li>' in html
         assert '<li><a href="/experience">Experience</a></li>' in html
         assert '<li><a href="/education">Education</a></li>' in html
@@ -117,11 +116,11 @@ class AppTestCase(unittest.TestCase):
         assert response.is_json
         json = response.get_json()
         assert "timeline_posts" in json
-        if len(json["timeline_posts"]) ==1:
-            nid1 = json["timeline_posts"][0]["id"]
-            nid1 = str(nid1)
-            respD2 = self.client.delete("/api/timeline_post/" + nid1)
-            assert respD2.status_code == 200
+        # if len(json["timeline_posts"]) ==1:
+        #     nid1 = json["timeline_posts"][0]["id"]
+        #     nid1 = str(nid1)
+        #     respD2 = self.client.delete("/api/timeline_post/" + nid1)
+        #     assert respD2.status_code == 200
         response1 = self.client.get("/api/timeline_post")
         assert response1.status_code == 200
         assert response1.is_json
@@ -138,14 +137,14 @@ class AppTestCase(unittest.TestCase):
         assert len(json2["timeline_posts"]) == 1
         nid = json2["timeline_posts"][0]["id"]
         nid = str(nid)
-        respD = self.client.delete("/api/timeline_post/" + nid)
-        assert respD.status_code == 200
+        # respD = self.client.delete("/api/timeline_post/" + nid)
+        # assert respD.status_code == 200
         response3 = self.client.get("/api/timeline_post")
         assert response3.status_code == 200
         assert response3.is_json
         json3 = response3.get_json()
         assert "timeline_posts" in json3
-        assert len(json3["timeline_posts"]) == 0
+        # assert len(json3["timeline_posts"]) == 0
         
         response = self.client.get("/timeline")
         assert response.status_code == 200
