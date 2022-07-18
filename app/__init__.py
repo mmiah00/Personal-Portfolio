@@ -115,26 +115,26 @@ def get_time_line_post():
 #         from traceback import format_exec
 #         print(format_exec())
 
-@app.route("/api/timeline_post/<id>", methods=["DELETE"])
-def delete_timeline_post(id):
-    toDelete = TimelinePost.query.get(id)
-    mydb.session.delete(toDelete)
-    mydb.session.commit()
+# @app.route("/api/timeline_post/<id>", methods=["DELETE"])
+# def delete_timeline_post(id):
+#     toDelete = TimelinePost.query.get(id)
+#     mydb.session.delete(toDelete)
+#     mydb.session.commit()
 
-    return "Post was successfully deleted"
+#     return "Post was successfully deleted"
 
 
-# @app.route('/api/timeline_post/<int:nid>', methods=['DELETE'])
-# def delete_time_line_post(nid): 
-# 	post_to_delete = TimelinePost.delete().where(TimelinePost.id == nid)
-# 	post_to_delete.execute()
-# 	print("Deleted successfully")
-# 	# return { 
-# 	# 	'timeline_posts': [
-# 	# 		model_to_dict(p)
-# 	# 		for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
-# 	# 	]
-# 	# }
+@app.route('/api/timeline_post/<int:nid>', methods=['DELETE'])
+def delete_time_line_post(nid): 
+	post_to_delete = TimelinePost.delete().where(TimelinePost.id == nid)
+	post_to_delete.execute()
+	print("Deleted successfully")
+	# return { 
+	# 	'timeline_posts': [
+	# 		model_to_dict(p)
+	# 		for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+	# 	]
+	# }
 
 
 
