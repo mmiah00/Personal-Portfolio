@@ -20,7 +20,7 @@
     <h4>Created at {{post.created_at}}</h4>
     <p>Email: {{post.email}}</p>
     <p>Content: {{post.content}}</p>
-    <button type="delete" onClick="deletePost(post.id)">Delete Post</button>
+    <button type="delete" onClick="deletePost(post)">Delete Post</button>
   </div>
   {% endfor %}
 
@@ -36,7 +36,7 @@
         method: "POST",
         body: payload,
       })
-        .then((res) => res.json())
+        // .then((res) => res.json())
         .then((data) => {
           console.log(data);
           location.reload();
@@ -52,7 +52,7 @@
   <script>
     function deletePost(id) { 
       post = document.getElementById("post"); 
-      url = "/api/timeline_post/" + id + "/"; 
+      url = "/api/timeline_post/" + post.id + "/"; 
       fetch (url, { 
         method: "DELETE", 
       })
