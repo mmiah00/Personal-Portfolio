@@ -14,7 +14,7 @@ if os.getenv("TESTING") == "true":
     print("Running in test mode")
     mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
 else:
-    #creates database
+    #creates database 
     mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
     user=os.getenv("MYSQL_USER"),
     password=os.getenv("MYSQL_PASSWORD"),
@@ -24,43 +24,43 @@ else:
 
 print(mydb)
 
-class TimelinePost(Model):
-        name = CharField()
-        email = CharField()
-        content = TextField()
-        created_at = DateTimeField(default=datetime.datetime.now)
+class TimelinePost(Model): 
+	name = CharField()
+	email = CharField()
+	content = TextField()
+	created_at = DateTimeField(default=datetime.datetime.now)
 
-        class Meta:
-                database = mydb
-
+	class Meta: 
+		database = mydb
+	
 mydb.connect()
 mydb.create_tables([TimelinePost])
 
 @app.route("/")
-def index():
-        # acts as a homepage and an "About Me" page
-        return render_template("index.html", title="Maisha's Portfolio")
+def index(): 
+	# acts as a homepage and an "About Me" page
+	return render_template("index.html", title="Maisha's Portfolio")
 
 @app.route("/experience")
-def workExp():
-        return render_template("experience.html", title="Work Experience")
+def workExp(): 
+	return render_template("experience.html", title="Work Experience")
 
 @app.route("/hobbies")
-def hobbies():
-        return render_template("hobbies.html", title="Hobbies")
+def hobbies(): 
+	return render_template("hobbies.html", title="Hobbies")
 
 @app.route("/education")
-def education():
-        return render_template("education.html", title="Education")
+def education(): 
+	return render_template("education.html", title="Education") 
 
 @app.route("/myMap")
-def myMap():
-        return render_template("map.html", title="Map")
+def myMap(): 
+	return render_template("map.html", title="Map") 
 
 @app.route("/timeline")
-def timeline():
-        posts = [model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())]
-        return render_template('timeline.html', title="Timeline", posts=posts)
+def timeline(): 
+	posts = [model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())]
+	return render_template('timeline.html', title="Timeline", posts=posts)
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
@@ -68,7 +68,7 @@ def post_time_line_post():
     try:
         name = request.form['name']
         email = request.form['email']
-        content = request.form['content']
+        content = request.form['content'] 
         if content == "":
             # page = render_template('error.html', title="Invalid content")
             return Response(
@@ -93,16 +93,16 @@ def post_time_line_post():
                 )
     except:
         # page = render_template('error.html', title="Invalid name")
-            return Response("Invalid name", status=400)
+	    return Response("Invalid name", status=400)
 
 @app.route('/api/timeline_post', methods=['GET'])
-def get_time_line_post():
-        return {
-                'timeline_posts': [
-                        model_to_dict(p)
-                        for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
-                ]
-        }
+def get_time_line_post(): 
+	return { 
+		'timeline_posts': [
+			model_to_dict(p)
+			for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+		]
+	}
 
 # @app.route('/api/timeline_post/<int:nid>', methods=['DELETE'])
 # def delete_time_line_post(nid):
@@ -115,13 +115,20 @@ def get_time_line_post():
 #         from traceback import format_exec
 #         print(format_exec())
 
-# @app.route("/api/timeline_post/<id>", methods=["DELETE"])
-# def delete_timeline_post(id):
-#     toDelete = TimelinePost.query.get(id)
-#     mydb.session.delete(toDelete)
-#     mydb.session.commit()
+@app.route("/api/timeline_post/<id>", methods=["DELETE"])
+def delete_timeline_post(id):
+    toDelete = TimelinePost.query.get(id)
+    mydb.session.delete(toDelete)
+    mydb.session.commit()
 
-#     return "Post was successfully deleted"
+    return { 
+		'timeline_posts': [
+			model_to_dict(p)
+			for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+		]
+	}
+
+    # return "Post was successfully deleted"
 
 
 @app.route('/api/timeline_post/<int:nid>', methods=['DELETE'])
