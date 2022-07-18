@@ -52,7 +52,8 @@
   <script>
     function deletePost(id) { 
       post = document.getElementById("post"); 
-      fetch ("/api/timeline_post/" + id, { 
+      url = "/api/timeline_post/" + id; 
+      fetch (url, { 
         method: "DELETE", 
       })
       .then ((res) => res.json())
