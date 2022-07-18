@@ -115,7 +115,7 @@ def get_time_line_post():
 #         from traceback import format_exec
 #         print(format_exec())
 
-@app.route("/api/timeline_post/<id>", methods=["DELETE"])
+@app.route("/api/timeline_post/<id>", methods=['DELETE'])
 def delete_timeline_post(id):
     toDelete = TimelinePost.query.get(id)
     mydb.session.delete(toDelete)
