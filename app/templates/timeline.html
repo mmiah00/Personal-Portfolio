@@ -52,7 +52,7 @@
   <script>
     function deletePost(id) { 
       post = document.getElementById("post"); 
-      url = "/api/timeline_post/" + id + "/"; 
+      url = "/api/timeline_post/" + id; 
       console.log("id: " + id); 
       fetch (url, { 
         method: "DELETE", 
