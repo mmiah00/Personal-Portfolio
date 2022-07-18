@@ -36,7 +36,7 @@
         method: "POST",
         body: payload,
       })
-        // .then((res) => res.json())
+        .then((res) => res.json())
         .then((data) => {
           console.log(data);
           location.reload();
@@ -53,10 +53,10 @@
     function deletePost(id) { 
       post = document.getElementById("post"); 
       url = "/api/timeline_post/" + post.id + "/"; 
-      fetch (url, { 
+      fetch ("/api/timeline_post/<int:id>", { 
         method: "DELETE", 
       })
-      .then ((res) => res.json())
+      // .then ((res) => res.json())
       .then ((data) => { 
         console.log(data); 
       })
