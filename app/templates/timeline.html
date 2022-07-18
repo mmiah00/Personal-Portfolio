@@ -15,11 +15,12 @@
   <p id="error"></p>
 
   {% for post in posts %}
-  <div class="card">
-    <h3>Post #{{post.id}} by {{post.name}}</h3>
+  <div id="post" class="card">
+    <h3>Post by {{post.name}}</h3>
     <h4>Created at {{post.created_at}}</h4>
     <p>Email: {{post.email}}</p>
     <p>Content: {{post.content}}</p>
+    <button type="delete" onClick="deletePost(post.id)">Delete Post</button>
   </div>
   {% endfor %}
 
@@ -47,5 +48,20 @@
       form.reset();
     });
   </script>
+
+  <script>
+    function deletePost(id) { 
+      post = document.getElementById("post"); 
+      fetch ("/api/timeline_post/" + id, { 
+        method: "DELETE", 
+      })
+      .then ((res) => res.json())
+      .then ((data) => { 
+        console.log(data); 
+      })
+      .catch((err) => console.log(err)); 
+    }
+  </script>
+
 </div>
 {%endblock%}
