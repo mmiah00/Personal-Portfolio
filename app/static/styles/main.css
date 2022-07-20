@@ -4,6 +4,7 @@ p, h1, h2, h3, h4, h5, h6, button {
     /* font-family: 'Nunito', sans-serif; */
     /* font-family: 'Ubuntu', sans-serif; */
     font-family: 'Manrope', sans-serif;
+    color: rgb(139, 0,0); 
 }
 
 h1 { 
@@ -12,7 +13,8 @@ h1 {
 }
 
 body {
-    background-image: linear-gradient(to right, pink, #FFFF8F);
+    /* background-image: linear-gradient(to right, pink, #FFFF8F); */
+    background-color: antiquewhite;
     background-size: cover;
     overflow-x: scroll;
     font-family: "Ubuntu", sans-serif;
@@ -189,3 +191,4 @@ body {
     margin-right: 20%; 
     /* border: 2px solid lime;  */
 }
+
