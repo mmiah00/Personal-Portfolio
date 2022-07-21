@@ -31,4 +31,4 @@ jobs:
         - name: Print Container Status 
           run: |
              cd ${{ secrets.PROJECT_ROOT }}
-             docker compose ps 
+             docker-compose ps 
