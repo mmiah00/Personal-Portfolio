@@ -41,9 +41,9 @@ body {
     font-size: 20px; 
     border-radius: 6px;
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid rgb(139, 0,0);
     outline: 1px; 
-    color: #0e0000;
+    color: rgb(139, 0,0);
 }
 
 /* *********** FOR HOMEPAGE *********** */
