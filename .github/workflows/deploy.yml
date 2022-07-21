@@ -29,6 +29,4 @@ jobs:
         - name: Print project root directory
           run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && pwd'
         - name: Print Container Status 
-          run: |
-             cd ${{ secrets.PROJECT_ROOT }}
-             docker compose ps | cat
+          run: cd ${{ secrets.PROJECT_ROOT }} && docker compose ps
