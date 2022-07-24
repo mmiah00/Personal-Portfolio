@@ -54,11 +54,13 @@ jobs:
           run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && pwd'
         - name: Print Container Status 
           run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
-    
-    statussuccess: 
-       name: "Send Message if Deployment Successful"
-       needs: deploy 
-       runs-on: ubuntu-latest 
-       steps: 
         - name: Send Deployment Notification 
           run: ssh my-vps 'curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"'
+    
+#     statussuccess: 
+#        name: "Send Message if Deployment Successful"
+#        needs: deploy 
+#        runs-on: ubuntu-latest 
+#        steps: 
+#         - name: Send Deployment Notification 
+#           run: ssh my-vps 'curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"'
