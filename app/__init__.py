@@ -16,11 +16,11 @@ if os.getenv("TESTING") == "true":
 else:
     #creates database 
     mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-    user=os.getenv("MYSQL_USER"),
-    password=os.getenv("MYSQL_PASSWORD"),
-    host=os.getenv("MYSQL_HOST"),
-    port=3306
-    )
+                        user=os.getenv("MYSQL_USER"),
+                        password=os.getenv("MYSQL_PASSWORD"),
+                        host=os.getenv("MYSQL_HOST"),
+                        port=3306
+                        )
 
 print(mydb)
 
@@ -41,21 +41,21 @@ def index():
 	# acts as a homepage and an "About Me" page
 	return render_template("index.html", title="Maisha's Portfolio")
 
+@app.route("/background")
+def background(): 
+	return render_template("background.html", title="About Me")
+
 @app.route("/experience")
 def workExp(): 
 	return render_template("experience.html", title="Work Experience")
 
-@app.route("/hobbies")
-def hobbies(): 
-	return render_template("hobbies.html", title="Hobbies")
+@app.route("/projects")
+def projects(): 
+	return render_template("projects.html", title="Projects")
 
-@app.route("/education")
-def education(): 
-	return render_template("education.html", title="Education") 
-
-@app.route("/myMap")
-def myMap(): 
-	return render_template("map.html", title="Map") 
+@app.route("/contact")
+def contact(): 
+	return render_template("contact.html", title="Contact Me")
 
 @app.route("/timeline")
 def timeline(): 

@@ -27,15 +27,17 @@
         <nav>
           <ul>
             <li><a href="{{ url_for('index')}}">Home</a></li>
-            <li><a href="{{ url_for('workExp')}}">Experience</a></li>
-            <!-- <li><a href="{{ url_for('hobbies')}}">Hobbies</a></li> -->
-            <li><a href="{{ url_for('education')}}">Education</a></li>
-            <!-- <li><a href="{{ url_for('myMap')}}">Map</a></li> -->
-            <li><a href="{{ url_for('timeline')}}"> Feedback </a></li>
+            <li><a href="{{ url_for('background')}}">Background</a></li>
+            <li><a href="{{ url_for('experience')}}">Experience</a></li>
+            <li><a href="{{ url_for('projects')}}"> Projects </a></li>
+            <li><a href="{{ url_for('contact')}}"> Contact </a></li>
           </ul>
         </nav>
       </div>
-      <div class="nav-content">{% block content %} {% endblock %}</div>
     </header>
+     
+    <div class="nav-content">
+        {% block content %} {% endblock %}
+    </div>
   </body>
 </html>
