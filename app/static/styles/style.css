@@ -67,20 +67,60 @@ body {
     height: 100vh;
 }
 
-#text { 
-    position: absolute; 
-    font-size: 5em;
-    color: #fff; 
-    text-shadow: 2px 2px 4px rgba(0,0,0, 0.2); 
+.scrolldown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.parallax img { 
+#welcome { 
+    font-size: 5em;
+    font-family: 'Barlow Condensed', sans-serif; 
+    color: #000; 
+    text-shadow: 2px 2px 4px rgba(101, 100, 100, 0.2); 
+    transform: translate(15px, -80px); 
+}
+
+.pfp { 
+    scale: 60%;
+}
+
+#scrollmsg { 
+    transform: translate(20px, -80px);
+    font-size: 20px;
+}
+
+/* #scrolldown { 
+    align-items: center;
+    justify-content: center;
+} */
+
+#scrolldown {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.buildings { 
     position: absolute; 
-    top: 0; 
+    /* top: -200;  */
     left: 0; 
-    width: 100%; 
+    /* width: 100%; 
+    height: 100%;  */
+    width: 100vw;
+    height: auto; 
     pointer-events: none; 
 }
+
+/* .blackdivider { 
+    width: 100%;
+    height: 20px; 
+    background: #000; 
+} */
 
 .background { 
     position: relative; 
