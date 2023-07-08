@@ -7,11 +7,19 @@
     font-family: 'Barlow Condensed', sans-serif; 
 }
 
-body { 
+/* body { 
     background: #ececee; 
     min-height: 100vh; 
     overflow-x: hidden; 
+} */
+
+body {
+    background: #ececee;
+    /* min-height: 100vh; */
+    overflow-x: hidden;
+    max-height: 100%;
 }
+  
 
 /* * * * * * * * * * * * * * * * * NAV BAR START * * * * * * * * * * * * * * * * */ 
 .navigation {
@@ -59,6 +67,7 @@ body {
 
 /* * * * * * * * * * * * * * * * * NAV BAR END * * * * * * * * * * * * * * * * */ 
 
+/* * * * * * * * * * * * * * * * * LANDING PAGE START * * * * * * * * * * * * * * * * */
 .parallax { 
     position: relative; 
     display: flex; 
@@ -122,25 +131,58 @@ body {
     background: #000; 
 } */
 
-.background { 
+/* * * * * * * * * * * * * * * * * LANDING PAGE END * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * BACKGROUND SECT START * * * * * * * * * * * * * * * * */
+
+.background {
+    position: relative;
+    background: #000;
+    padding: 100px;
+}
+
+.background-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-pfp {
+    width: 200px;
+    margin-right: 40px;
+}
+
+.background-text {
+    color: #fff;
+}
+
+.background p {
+    font-size: 1em;
+    font-weight: 300;
+    text-align: justify;
+    margin-top: 10px; 
+}
+
+/* .background { 
     position: relative; 
-    background: #003329;
-    padding: 100px; 
+    background: #000; 
+    padding: 100px;
 }
 
 .background h2 { 
     font-size: 3em; 
     color: #fff; 
-    margin-bottom: 10px; 
 }
 
 .background p { 
     font-size: 1em; 
     color: #fff; 
-    font-weight: 300;
-}
+    font-weight: 300; 
+} */
 
-.experience { 
+/* * * * * * * * * * * * * * * * * BACKGROUND SECT END * * * * * * * * * * * * * * * * */
+
+/* .experience { 
     position: relative; 
     background: #359381;
     padding: 100px; 
@@ -192,4 +234,4 @@ body {
     font-size: 1em; 
     color: #fff; 
     font-weight: 300;
-}
+} */
