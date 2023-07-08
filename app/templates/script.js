@@ -20,35 +20,61 @@
 //     hill1.style.top = value * -1.5 + 'px'; // makes hills on top go down as text moves down 
 // }); 
 
-let welcome = document.getElementById('welcome');
+
+
+
+
+// let welcome = document.getElementById('welcome');
+// let scrolldown = document.getElementById('scrolldown');
+// let buildings = document.getElementById('buildings');
+// let backgroundSection = document.querySelector('.background');
+
+// window.addEventListener('scroll', () => {
+//   let sectionOffsetTop = backgroundSection.offsetTop; // Top offset of the background section
+//   let sectionHeight = backgroundSection.offsetHeight; // Height of the background section
+//   let windowHeight = window.innerHeight; // Height of the viewport
+//   let scrollPosition = window.scrollY;
+
+//   let sectionEndPosition = sectionOffsetTop + sectionHeight;
+//   let maxScroll = sectionEndPosition - windowHeight;
+
+//   let scrollPercentage = scrollPosition / maxScroll;
+
+//   scrollPercentage = Math.max(0, Math.min(scrollPercentage, 1)); // Limit scrollPercentage between 0 and 1
+
+// //   welcome.style.marginTop = scrollPercentage * (windowHeight / 2) + 'px';
+//   scrolldown.style.marginTop = scrollPercentage * (windowHeight / 2) + 'px';
+//   // buildings.style.marginTop = scrollPercentage * (windowHeight / 3) + 'px';
+//   leaf.style.top = scrollPercentage * (windowHeight / -2) + 'px';
+//   leaf.style.left = scrollPercentage * (windowHeight / 2) + 'px';
+//   hill5.style.left = scrollPercentage * (windowHeight / 2) + 'px';
+//   hill4.style.left = scrollPercentage * (windowHeight / -2) + 'px';
+//   hill1.style.top = scrollPercentage * (windowHeight / -2) + 'px';
+// });
+
+
 let scrolldown = document.getElementById('scrolldown');
-let buildings = document.getElementById('buildings');
-let leaf = document.getElementById('leaf');
-let hill1 = document.getElementById('hill1');
-let hill4 = document.getElementById('hill4');
-let hill5 = document.getElementById('hill5');
-let backgroundSection = document.querySelector('.background');
+let scrolldownItems = scrolldown.querySelectorAll('img, h2, p'); // Adjust the selector to match your specific elements
 
 window.addEventListener('scroll', () => {
-  let sectionOffsetTop = backgroundSection.offsetTop; // Top offset of the background section
-  let sectionHeight = backgroundSection.offsetHeight; // Height of the background section
-  let windowHeight = window.innerHeight; // Height of the viewport
   let scrollPosition = window.scrollY;
-
-  let sectionEndPosition = sectionOffsetTop + sectionHeight;
-  let maxScroll = sectionEndPosition - windowHeight;
-
-  let scrollPercentage = scrollPosition / maxScroll;
-
-  scrollPercentage = Math.max(0, Math.min(scrollPercentage, 1)); // Limit scrollPercentage between 0 and 1
-
-//   welcome.style.marginTop = scrollPercentage * (windowHeight / 2) + 'px';
-  scrolldown.style.marginTop = scrollPercentage * (windowHeight / 2) + 'px';
-  buildings.style.marginTop = scrollPercentage * (windowHeight / 3) + 'px';
-  leaf.style.top = scrollPercentage * (windowHeight / -2) + 'px';
-  leaf.style.left = scrollPercentage * (windowHeight / 2) + 'px';
-  hill5.style.left = scrollPercentage * (windowHeight / 2) + 'px';
-  hill4.style.left = scrollPercentage * (windowHeight / -2) + 'px';
-  hill1.style.top = scrollPercentage * (windowHeight / -2) + 'px';
+  let startPosition = 0; // Adjust this value to set the starting position
+  let endPosition = 500; // Adjust this value to set the ending position
+  
+  if (scrollPosition >= startPosition && scrollPosition <= endPosition) {
+    let distance = scrollPosition - startPosition;
+    let opacity = 1 - distance / (endPosition - startPosition);
+    let translateY = distance * 1; // Adjust this value to control the vertical movement
+    
+    scrolldownItems.forEach(item => {
+      item.style.transform = `translateY(${translateY}px)`;
+      item.style.opacity = opacity;
+    });
+  } 
+  // else {
+  //   scrolldownItems.forEach(item => {
+  //     item.style.transform = '';
+  //     item.style.opacity = '';
+  //   });
+  // }
 });
-
