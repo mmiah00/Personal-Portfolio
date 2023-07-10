@@ -1,25 +1,146 @@
-{%extends "navlayout.html"%}
-{%block content%}
-<div class="home">
-    <!-- <div class="home-img"> -->
-        <!-- <img src="static/img/Maisha Headshot.jpg" alt="profile picture" width = 75% height = 75% aling="center" border-radius=50%> -->
-    <!-- </div>  -->
-    <img src="static/img/Maisha Headshot.jpg" alt="profile picture">
-    <div class="home-content">
-        <!-- <img src="static/img/Maisha Headshot.jpg" alt="profile picture"> -->
-        <h1> Maisha Miah </h1>
-        <p> 
-            Hello and welcome to my portfolio! My name is Maisha (Ma-ee-sha) and <br>
-            I’m a current student at Boston University. I plan on majoring <br>
-            in Computer Science & Statistics and minoring in Economics. I was <br>
-            born and raised in New York City but love going to school in <br>
-            Boston! I'm a big fan of exploring and I’m always looking to <br>
-            learn new things.
-        </p>
-        <p style="font-size: 15px; padding-top: 50px"> 
-            Click on the toolbar above to find out more about me. 
-        </p>
-    </div>
-</div>
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, intiial-scale=1.0">
+        <title> Maisha's Portfolio Website </title>
+        <link rel="stylesheet" href="../static/styles/style.css" type="text/css">
+        <link rel="icon" href="../static/img/favicon.png"> 
+        <script src="https://kit.fontawesome.com/f0df8f6371.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap">
+    </head>
 
-{%endblock%}
+    <body> 
+        <header>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">
+                            <i class="fa-solid fa-house-chimney"></i>                            
+                            Home 
+                        </a>
+                    </li>
+                    <li><a href="#intro">
+                            <i class="fa-solid fa-user"></i>                            
+                            Intro
+                        </a>
+                    </li>
+                    <li><a href="#">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>                            
+                            Skills 
+                        </a>
+                    </li>
+                    <li><a href="#">
+                            <i class="fa-solid fa-briefcase"></i>                            
+                            Experience 
+                        </a>
+                    </li>
+                    <li><a href="#">
+                            <i class="fa-solid fa-gamepad"></i>
+                            Projects 
+                        </a>
+                    </li>
+                    <li><a href="#">
+                            <i class="fa-regular fa-address-card"></i>
+                            Contact 
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="parallax"> 
+            <img src="../static/img/HomepageBuildings.svg" class='buildings' id="buildings"> 
+            <!-- <img src="../static/img/ProfilePic.png" id="pfp">  -->
+            <br>
+            <div id="scrolldown"> 
+                <img src="../static/img/ProfilePic.svg" class="pfp">
+                <h2 id="welcome"> Welcome </h2>
+                <p id="scrollmsg"> <i class="fa-solid fa-angles-down" style="color: #000000;"></i> Scroll down to learn more about me! </p>
+            </div>  
+            <div id="divider"> </div>
+        </section>
+
+        <section class="background" id="intro">
+            <div class="background-hello"> 
+                <h2> &#128075 Hello </h2>
+            </div>
+            <div class="background-content">
+                <img src="../static/img/ProfilePic.svg" class="background-pfp">
+                <div class="background-text">
+                    <p id="background-msg1">
+                        I'm Maisha and welcome to my NYC-theme virtual portfolio! 
+                        
+                        This portfolio will walk through my skills, experiences, and projects that I have worked on.
+                        
+                        It is currently in the works, so make sure to stop by for updates!
+                    </p>
+                    <br> 
+                    <br> 
+                    <div id="background-msg2"> 
+                        <p> 
+                            To check out some of my projects, click the Github icon below: 
+                        <p> 
+                        <br> 
+                        <a href="https://www.github.com/mmiah00" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-github" style="color: #ECECEC;"></i>
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </section>
+
+          
+        
+
+        <!-- <section class="experience">
+            <h2> Skills and Experience </h2>
+            <p> 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere 
+                tellus vitae sagittis dictum. Mauris nec placerat metus, vel suscipit dolor. 
+                Pellentesque luctus sapien velit, nec molestie erat bibendum sed. Phasellus 
+                vel sapien id lorem laoreet blandit. Quisque at metus eget nibh convallis 
+                aliquet. Fusce tempus imperdiet tellus, pulvinar aliquam ex fermentum eu. 
+                Sed convallis suscipit tempus. Phasellus tincidunt porta erat eget ultrices. 
+                Mauris sollicitudin turpis quis sodales facilisis. Morbi ut magna in lorem 
+                lacinia commodo sit amet et ligula. Nam vehicula odio at dapibus congue. Nunc 
+                dapibus faucibus massa, eget aliquet erat molestie in. Nam porta sagittis nunc, 
+                vitae dignissim tortor fringilla in.
+            </p>
+        </section>
+
+        <section class="projects">
+            <h2> Projects </h2>
+            <p> 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere 
+                tellus vitae sagittis dictum. Mauris nec placerat metus, vel suscipit dolor. 
+                Pellentesque luctus sapien velit, nec molestie erat bibendum sed. Phasellus 
+                vel sapien id lorem laoreet blandit. Quisque at metus eget nibh convallis 
+                aliquet. Fusce tempus imperdiet tellus, pulvinar aliquam ex fermentum eu. 
+                Sed convallis suscipit tempus. Phasellus tincidunt porta erat eget ultrices. 
+                Mauris sollicitudin turpis quis sodales facilisis. Morbi ut magna in lorem 
+                lacinia commodo sit amet et ligula. Nam vehicula odio at dapibus congue. Nunc 
+                dapibus faucibus massa, eget aliquet erat molestie in. Nam porta sagittis nunc, 
+                vitae dignissim tortor fringilla in.
+            </p>
+        </section>
+
+        <section class="contact">
+            <h2> Get in Touch! </h2>
+            <p> 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere 
+                tellus vitae sagittis dictum. Mauris nec placerat metus, vel suscipit dolor. 
+                Pellentesque luctus sapien velit, nec molestie erat bibendum sed. Phasellus 
+                vel sapien id lorem laoreet blandit. Quisque at metus eget nibh convallis 
+                aliquet. Fusce tempus imperdiet tellus, pulvinar aliquam ex fermentum eu. 
+                Sed convallis suscipit tempus. Phasellus tincidunt porta erat eget ultrices. 
+                Mauris sollicitudin turpis quis sodales facilisis. Morbi ut magna in lorem 
+                lacinia commodo sit amet et ligula. Nam vehicula odio at dapibus congue. Nunc 
+                dapibus faucibus massa, eget aliquet erat molestie in. Nam porta sagittis nunc, 
+                vitae dignissim tortor fringilla in.
+            </p>
+        </section> -->
+
+        <script src="script.js"></script>
+    </body>
+</html>
