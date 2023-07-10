@@ -1,0 +1,72 @@
+{%extends "navlayout.html"%} 
+{%block content%}
+<div class="timeline">
+  <!-- Remodeled into a Feedback page  -->
+  <form id="form" name="timelineForm">
+    <label for="name"> Name </label>
+    <input name="name" type="text" id="name" />
+    <label for="email"> Email </label>
+    <input name="email" type="text" id="email" />
+    <label for="content"> Content </label>
+    <input name="content" type="text" id="content" />
+    <button type="submit">Submit</button>
+    <h3 id="ErrorMessage"></h3>
+  </form>
+
+  <p id="error"></p>
+
+  {% for post in posts %}
+  <div id="post" class="card">
+    <h3>Post by {{post.name}}</h3>
+    <h4>Created at {{post.created_at}}</h4>
+    <p>Email: {{post.email}}</p>
+    <p>Content: {{post.content}}</p>
+    <button type="delete" onClick="deletePost({{post.id}})"><b>Delete Post</b></button>
+  </div>
+  {% endfor %}
+
+
+  <script>
+    form = document.getElementById("form");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const payload = new FormData(form);
+
+      fetch("/api/timeline_post", {
+        method: "POST",
+        body: payload,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          location.reload();
+        })
+        .catch((err) => { 
+          document.getElementById("error").innerHTML = "Sorry, at least one of your entries is invalid. Please try again."; 
+          console.log(err); 
+        });
+      form.reset();
+    });
+  </script>
+
+  <script>
+    function deletePost(id) { 
+      post = document.getElementById("post"); 
+      url = "/api/timeline_post/" + id; 
+      console.log("Deleting post. Id = " + id); 
+      fetch (url, { 
+        method: "DELETE", 
+      })
+      // .then ((res) => res.json())
+      .then ((data) => { 
+        console.log(data); 
+        location.reload(); 
+        window.location.reload(); 
+      })
+      .catch((err) => console.log(err)); 
+    }
+  </script>
+
+</div>
+{%endblock%}
